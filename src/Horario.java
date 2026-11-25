@@ -1,15 +1,27 @@
-public class Horario {
-    private int dia, mes, ano, hora, minuto;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-    public Horario(int dia, int mes, int ano, int hora, int minuto){
-        this.hora = hora;
-        this.minuto = minuto;
-        this.dia = dia;
-        this.mes = mes;
-        this.ano = ano;
+public class Horario {
+    private LocalDateTime date;
+    private static final DateTimeFormatter FORMATO = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+    public Horario(String date){
+        setDate(LocalDateTime.parse(date, FORMATO));
+    }
+
+    public LocalDateTime getDate(){
+        return date;
+    }
+
+    public void setDate(LocalDateTime date){
+        if(date.isBefore(LocalDateTime.now())){
+            throw new IllegalArgumentException("Não é possível marcar horário em uma data que já passou!");
+        }
+        else
+            this.date = date;
     }
 
     public void imprime(){
-        System.out.printf("Dia: %02d/%02d/%04d - Horário: %02d:%02d\n", dia, mes, ano, hora, minuto);
+        System.out.println(date.format(FORMATO));
     }
 }
