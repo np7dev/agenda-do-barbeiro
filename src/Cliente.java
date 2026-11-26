@@ -38,7 +38,7 @@ public class Cliente {
     }
 
     public void imprime(){
-        System.out.println("Nome: "+nome);
+        System.out.println("Nome:    "+nome);
         System.out.println("Celular: "+getTelFormat());
     }
 }

@@ -1,9 +1,24 @@
-import java.time.LocalDateTime;
+import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args){
-        Cliente c1 = new Cliente("Zoro", "(11) 940028922");
-        Horario t1 = new Horario("29/11/2026", "01:00");
+        String nome, cel, date, time;
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Informe nome e telefone do cliente");
+        System.out.print("Nome: ");
+        nome = input.nextLine();
+        System.out.print("Cel: ");
+        cel = input.nextLine();
+
+        System.out.println("\nInforme dia e horário");
+        System.out.print("Dia: ");
+        date = input.nextLine();
+        System.out.print("Horário: ");
+        time = input.nextLine();
+
+        Cliente c1 = new Cliente(nome, cel);
+        Horario t1 = new Horario(date, time);
         t1.imprime();
         c1.imprime();
     }

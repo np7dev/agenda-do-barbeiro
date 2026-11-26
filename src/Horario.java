@@ -38,7 +38,8 @@
         }
 
         public void imprime(){
-            System.out.println("Dia: "+date.format(FORMAT_DATE));
+            System.out.println();
+            System.out.println("Dia:     "+date.format(FORMAT_DATE));
             System.out.println("Horário: "+time.format(FORMAT_TIME));
         }
     }
